@@ -1,0 +1,23 @@
+Manual Pixel Manipulation
+There are different image hashes that can be used to transform color images to grayscale.
+
+In summary, color images usually use the RGB format which means every pixel is represented by a tuple of three value (red, green and blue) in Python.
+
+L mode on the other hand only uses one value between 0-255 for each pixel (8-bit).
+
+So, how do we achieve one value from those three pixel values? We need some kind of averaging.
+
+One of the standards that can be used is Recommendation 601 from ITU-R (Radiocommunication Sector of International Telecommunication Union or ITU) organization which is also used by pillow library while converting color images to grayscale. The formula is something like this:
+
+ITU-R 601 7th Edition Construction of Luminance formula:
+L = R * 299/1000 + G * 587/1000 + B * 114/1000
+
+By iterating through each pixel you can convert 24-bit to 8-bit or 3 channel to 1 channel for each pixel by using the formula above.
+
+You can read the original ITU-R Recommendation 601 7th edition.
+
+Alternatively, you can try Rec. 709
+
+L = R * 2125/10000 + G * 7154/10000 + B * 0721/10000
+
+You can read the original ITU-R Recommendation 709 6th edition.

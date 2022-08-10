@@ -23,22 +23,15 @@ def process_line(img):
 		# Add border to form square
 
 def main():
+	from pdf2image import convert_from_path
+	from PIL import Image
 	import os
 
-	try:
-		from pdf2image import convert_from_path
-	except ModuleNotFoundError:
-		print("Error: pdf2image module not found")
-	try:
-		from PIL import Image
-	except ModuleNotFoundError:
-		print("Error: PIL module not found")
-
-	path = ""
+	path = f"passages{os.path.sep}0.jpg"
 
 	img = Image.open(path)
 	img = preprocess(img)
 	process_page(img)
 
-if __name__ == "main":
+if __name__ == "__main__":
 	main()
