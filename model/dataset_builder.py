@@ -1,4 +1,4 @@
-from pdf2image import convert_from_path
+#from pdf2image import convert_from_path
 from PIL import Image
 import os
 import numpy as np
@@ -37,8 +37,9 @@ def process_page(img, text):
 	:param text: filepath of corresponding text of image, split into lines with no blank lines
 	:return: None
 	"""
+
 	with open(text, 'r') as f:
-		txt = [l.strip() for l in f.readlines() if l.strip()]
+		txt = [l.strip().replace(' ', '') for l in f.readlines() if l.strip()]
 	line_img = []
 	line_i = 0
 
@@ -48,11 +49,11 @@ def process_page(img, text):
 			line_img.append(l + [0])
 		elif line_img:
 			line_img.append([0 for _ in range(len(line_img[0]))])
-			process_line(line_img, txt[line_i])
+			process_line(line_img, txt[line_i], line_i)
 			line_img.clear()
 			line_i += 1
 
-def process_line(img, txt):
+def process_line(img, txt, line_i):
 	"""Isolate characters in line and save to pending_dataset
 
 	:param 2d-list img: image containing one line of text
@@ -88,7 +89,7 @@ def process_line(img, txt):
 			self.y_min, self.y_max = min(self.y_min, shape.y_min), max(self.y_max, shape.y_max)
 			self.x_min, self.x_max = min(self.x_min, shape.x_min), max(self.x_max, shape.x_max)
 			self.pixels += shape.pixels
-			self.img.union(shape.img)
+			self.img = self.img.union(shape.img)
 
 			shapes.remove(shape)
 			
@@ -138,16 +139,39 @@ def process_line(img, txt):
 				i -= 1
 		i += 1
 
-	# Normalize characters and pass to model
-		# Trim white space for each character (in case font size change in line creates extra white space)
-		# Add border to form square
-		# Resize to 28x28
+	# Recreate characters
+	for i, s in enumerate(shapes):
+		# Ignore BACKTICK
+		if txt[min(i, len(txt) - 1)] in "`": continue
 
-	# Place into pending_dataset
+		# Add border to form square
+		if s.x_max - s.x_min < s.y_max - s.y_min:
+			addend = [0 for _ in range((s.y_max - s.y_min) - (s.x_max - s.x_min))]
+			img = [[1 if (y, x) in s.img else 0 for x in range(s.x_min, s.x_max + 1)] + addend
+					for y in range(s.y_min, s.y_max + 1)]
+		else:
+			addend = [0 for _ in range(s.x_min, s.x_max + 1)]
+			img = [[1 if (y, x) in s.img else 0 for x in range(s.x_min, s.x_max + 1)]
+					for y in range(s.y_min, s.y_max + 1)] +\
+					[addend for _ in range((s.x_max - s.x_min) - (s.y_max - s.y_min))]
+
+		print(len(img), len(img[0]))
+		if len(img) != len(img[0]):
+			print(*img, sep="\n")
+			assert(False)
+		new_img = Image.new('L', (len(img), len(img[0])))
+		# Flatten
+		img = [img[y][x] * 255 for y in range(len(img)) for x in range(len(img[0]))]
+		new_img.putdata(img)
+		new_img = new_img.resize((28, 28))
+		# Place into pending_dataset
+		p = os.path.join("pending_dataset", str(ord(txt[min(i, len(txt) - 1)])), f"{line_i}_{i}.jpg")
+		print(p)
+		new_img.save(p)
 
 def main():
-	img_path = os.path.join("passages", "0.jpg")
-	txt_path = os.path.join("passages", "0.txt")
+	img_path = os.path.join("passages", "2.jpg")
+	txt_path = os.path.join("passages", "2.txt")
 	txt_color = 0  # 0: black; 1: white
 
 	img = Image.open(img_path)

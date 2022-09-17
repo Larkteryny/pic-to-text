@@ -1,5 +1,710 @@
-normalized_ds = train_ds.map(lambda x, y: (normalization_layer(x), y))
-image_batch, labels_batch = next(iter(normalized_ds))
-first_image = image_batch[0]
-# Notice the pixel values are now in `[0,1]`.
-print(np.min(first_image), np.max(first_image))
+﻿No Formatting
+Font size 11
+Arial
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Comfortaa
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Comic Sans MS
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Consolas
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Courier New
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Georgia
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Impact
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Merriweather Bold
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Montserrat
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Orbitron
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Roboto
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Source Serif Pro
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Times New Roman
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Verdana
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+
+
+Font size 14
+Arial
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Comfortaa
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Comic Sans MS
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Consolas
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Courier New
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Georgia
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Impact
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Merriweather Bold
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Montserrat
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Orbitron
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Roboto
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Source Serif Pro
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Times New Roman
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Verdana
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+
+
+Font size 18
+Arial
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Comfortaa
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Comic Sans MS
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Consolas
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Courier New
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Georgia
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Impact
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Merriweather Bold
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Montserrat
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Orbitron
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Roboto
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Source Serif Pro
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Times New Roman
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Verdana
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+
+
+Italics Formatting
+Font size 11
+Arial
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Comfortaa
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Comic Sans MS
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Consolas
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Courier New
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Georgia
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Impact
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Merriweather Bold
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Montserrat
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Orbitron
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Roboto
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Source Serif Pro
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Times New Roman
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Verdana
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+
+
+Font size 14
+Arial
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Comfortaa
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Comic Sans MS
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Consolas
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Courier New
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Georgia
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Impact
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Merriweather Bold
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Montserrat
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Orbitron
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Roboto
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Source Serif Pro
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Times New Roman
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Verdana
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+
+
+Font size 18
+Arial
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Comfortaa
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Comic Sans MS
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Consolas
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Courier New
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Georgia
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Impact
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Merriweather Bold
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Montserrat
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Orbitron
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Roboto
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Source Serif Pro
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Times New Roman
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Verdana
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+
+
+Bold Formatting
+Font size 11
+Arial
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Comfortaa
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Comic Sans MS
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Consolas
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Courier New
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Georgia
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Impact
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Merriweather Bold
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Montserrat
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Orbitron
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Roboto
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Source Serif Pro
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Times New Roman
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Verdana
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+
+
+Font size 14
+Arial
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Comfortaa
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Comic Sans MS
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Consolas
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Courier New
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Georgia
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Impact
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Merriweather Bold
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Montserrat
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Orbitron
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Roboto
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Source Serif Pro
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Times New Roman
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Verdana
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+
+
+Font size 18
+Arial
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Comfortaa
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Comic Sans MS
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Consolas
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Courier New
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Georgia
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Impact
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Merriweather Bold
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Montserrat
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Orbitron
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Roboto
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Source Serif Pro
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Times New Roman
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Verdana
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+
+
+Bold & Italics Formatting
+Font size 11
+Arial
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Comfortaa
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Comic Sans MS
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Consolas
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Courier New
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Georgia
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Impact
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Merriweather Bold
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Montserrat
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Orbitron
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Roboto
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Source Serif Pro
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Times New Roman
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Verdana
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+
+
+Font size 14
+Arial
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Comfortaa
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Comic Sans MS
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Consolas
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Courier New
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Georgia
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Impact
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Merriweather Bold
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Montserrat
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Orbitron
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Roboto
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Source Serif Pro
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Times New Roman
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Verdana
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+
+
+Font size 18
+Arial
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Comfortaa
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Comic Sans MS
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Consolas
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Courier New
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Georgia
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Impact
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Merriweather Bold
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Montserrat
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Orbitron
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Roboto
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Source Serif Pro
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Times New Roman
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+Verdana
+!"#$%&'()*+,-./0123456789:;<=>?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[ \ ]^_
+abcdefghijklmnopqrstuvwxyz{|}~

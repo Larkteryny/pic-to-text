@@ -8,8 +8,8 @@ import shutil
 
 mode = 0  # 0: create; 1: delete
 
-# All ASCII printable characters (excluding SPACE)
-chars = [str(x) for x in range(33, 127)]
+# All ASCII printable characters (excluding SPACE, BACKTICK)
+chars = [str(x) for x in range(33, 96)] + [str(x) for x in range(97, 127)]
 paths = ['dataset', 'pending_dataset']
 
 if mode:
