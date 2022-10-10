@@ -1,4 +1,4 @@
-#from pdf2image import convert_from_path
+from pdf2image import convert_from_path
 from PIL import Image
 import os
 import numpy as np
@@ -60,10 +60,6 @@ def process_line(img, txt, line_i):
 	:param str txt: corresponding line of text
 	:return: None
 	"""
-	def flood(y, x):
-		"""Allows for more readable code below"""
-		temp.append((y, x))
-		img[y][x] = 0
 	
 	class Shape():
 		def __init__(self, img):
@@ -96,29 +92,24 @@ def process_line(img, txt, line_i):
 
 	# Split lines into characters (left to right)
 	shapes = []
+	surrounding = ((-1, -1), (-1, 0), (-1, 1), (0, -1), (0, 1), (1, -1), (1, 0), (1, 1))  # Diagonals connected
 	# Left to right scan
 	for x in range(len(img[0])):
 		for y in range(len(img)):
 			if img[y][x]:
 				# Find island via flood-fill
-				shape = []
+				shape = [(y, x)]
 				check = [(y, x)]
 				img[y][x] = 0
 
 				while check:
-					shape += check
-					temp = []
-					for px in check:
-						# Replace all x, y with px[1], px[0]
-						if img[px[0] - 1][px[1] - 1]: flood(px[0] - 1, px[1] - 1)
-						if img[px[0] - 1][px[1]]: flood(px[0] - 1, px[1])
-						if img[px[0] - 1][px[1] + 1]: flood(px[0] - 1, px[1] + 1)
-						if img[px[0]][px[1] - 1]: flood(px[0], px[1] - 1)
-						if img[px[0]][px[1] + 1]: flood(px[0], px[1] + 1)
-						if img[px[0] + 1][px[1] - 1]: flood(px[0] + 1, px[1] - 1)
-						if img[px[0] + 1][px[1]]: flood(px[0] + 1, px[1])
-						if img[px[0] + 1][px[1] + 1]: flood(px[0] + 1, px[1] + 1)
-					check = temp
+					px = check.pop(0)
+					for sur in surrounding:
+						ny, nx = px[0] + sur[0], px[1] + sur[1]
+						if img[ny][nx]:
+							check.append((ny, nx))
+							shape.append((ny, nx))
+							img[ny][nx] = 0
 				shapes.append(Shape(shape))
 
 	# Combine islands who horizontally encompasses another's mean for i, :, =, ?, %
@@ -155,10 +146,6 @@ def process_line(img, txt, line_i):
 					for y in range(s.y_min, s.y_max + 1)] +\
 					[addend for _ in range((s.x_max - s.x_min) - (s.y_max - s.y_min))]
 
-		print(len(img), len(img[0]))
-		if len(img) != len(img[0]):
-			print(*img, sep="\n")
-			assert(False)
 		new_img = Image.new('L', (len(img), len(img[0])))
 		# Flatten
 		img = [img[y][x] * 255 for y in range(len(img)) for x in range(len(img[0]))]
@@ -174,7 +161,10 @@ def main():
 	txt_path = os.path.join("passages", "2.txt")
 	txt_color = 0  # 0: black; 1: white
 
-	img = Image.open(img_path)
+	if img_path.endswith("pdf"):
+		img = convert_from_path(img_path)
+	else:
+		img = Image.open(img_path)
 	img = preprocess(img, txt_color)
 	process_page(img, txt_path)
 
